@@ -183,7 +183,6 @@ class Bridge(object):
         self.img_count += 1
         if self.img_count >= NUM_IMAGES_TO_SKIP:
             imgstring = data["image"]
-            rospy.loginfo("Imgstring:[{}]".format(imgstring))
             image = PIL_Image.open(BytesIO(base64.b64decode(imgstring)))
             image_array = np.asarray(image)
             image_message = self.bridge.cv2_to_imgmsg(image_array, encoding="rgb8")
